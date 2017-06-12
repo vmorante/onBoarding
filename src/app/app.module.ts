@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from "./app.routing";
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { BasicDataComponent } from './pages/basic-data/basic-data.component';
 import { ConsentComponent } from './pages/consent/consent.component';
@@ -11,8 +12,10 @@ import { ScanDNIComponent } from './pages/scan-dni/scan-dni.component';
 import { RecordComponent } from './pages/record/record.component';
 import { CompleteDataComponent } from './pages/complete-data/complete-data.component';
 import { FinishComponent } from './pages/finish/finish.component';
+
 import { FormsBasicDataComponent } from './components/forms-basic-data/forms-basic-data.component';
-import { AppRoutingModule } from './app.routing';
+
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +27,14 @@ import { AppRoutingModule } from './app.routing';
     RecordComponent,
     CompleteDataComponent,
     FinishComponent,
+    NavbarComponent,
     FormsBasicDataComponent
   ],
   imports: [
-     AppRoutingModule,
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     HttpModule
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
