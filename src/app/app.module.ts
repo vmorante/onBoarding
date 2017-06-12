@@ -11,6 +11,8 @@ import { ScanDNIComponent } from './pages/scan-dni/scan-dni.component';
 import { RecordComponent } from './pages/record/record.component';
 import { CompleteDataComponent } from './pages/complete-data/complete-data.component';
 import { FinishComponent } from './pages/finish/finish.component';
+import { FormsBasicDataComponent } from './components/forms-basic-data/forms-basic-data.component';
+import { AppRoutingModule } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,15 @@ import { FinishComponent } from './pages/finish/finish.component';
     ScanDNIComponent,
     RecordComponent,
     CompleteDataComponent,
-    FinishComponent
+    FinishComponent,
+    FormsBasicDataComponent
   ],
   imports: [
+     AppRoutingModule,
     BrowserModule,
     FormsModule,
     HttpModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
