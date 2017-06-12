@@ -9,5 +9,6 @@
 }
 
 .bg-bottom>div {
-    margin-top: -25vh;
+    position: relative;
+    top: -25vh;
 }

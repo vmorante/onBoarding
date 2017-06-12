@@ -2,6 +2,18 @@ nav>div {
     background-color: #fff;
 }
 
-nav a {
-    color: #000;
+a {
+    font-size: 1.2em;
+}
+
+#sm-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.link-active {
+    border-bottom: 3px solid #37474f;
+    margin-bottom: -3px;
+    line-height: 61px;
 }
