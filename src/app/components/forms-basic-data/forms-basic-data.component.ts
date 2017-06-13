@@ -27,10 +27,12 @@ export class FormsBasicDataComponent implements OnInit {
    submitBasicData(form: FormGroup): void {
        var  userForms=form.value;
     
-       localStorage.setItem("name",JSON.stringify(userForms.name))  
-       localStorage.setItem("last_name",JSON.stringify(userForms.last_name))   
+       localStorage.setItem("name",userForms.name) 
+       localStorage.setItem("last_name",userForms.last_name)   
        localStorage.setItem("telephone",JSON.stringify(userForms.telephone))   
-       localStorage.setItem("email",JSON.stringify(userForms.email))   
+       localStorage.setItem("email",userForms.email)  
+       //esto hay que borralo despues, solo para pruebas
+       localStorage.setItem("dni",JSON.stringify(28732846))
             
     }
 

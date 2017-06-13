@@ -16,6 +16,7 @@ import { FinishComponent } from './pages/finish/finish.component';
 import { FormsBasicDataComponent } from './components/forms-basic-data/forms-basic-data.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormsCompleteDataComponent } from './components/forms-complete-data/forms-complete-data.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     CompleteDataComponent,
     FinishComponent,
     NavbarComponent,
-    FormsBasicDataComponent
+    FormsBasicDataComponent,
+    FormsCompleteDataComponent
   ],
   imports: [
     AppRoutingModule,
