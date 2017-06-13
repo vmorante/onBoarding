@@ -1,0 +1,17 @@
+{
+  "name": "on-boarding",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "https://github.com/vmorante/onBoarding",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^2.0.1"
+  }
+}
