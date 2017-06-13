@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { FormGroup } from "@angular/forms";
 
@@ -14,9 +14,19 @@ export class FormsBasicDataComponent implements OnInit {
   ngOnInit() {
   }
 
+  comprobarEmail(email1,email2){
+    
+
+    if(email1==email2){
+     
+    return false;
+    }else
+    return true;
+  }
+
    submitBasicData(form: FormGroup): void {
        var  userForms=form.value;
-            
+    
        localStorage.setItem("name",JSON.stringify(userForms.name))  
        localStorage.setItem("last_name",JSON.stringify(userForms.last_name))   
        localStorage.setItem("telephone",JSON.stringify(userForms.telephone))   

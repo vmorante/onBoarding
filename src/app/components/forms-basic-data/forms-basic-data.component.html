@@ -1,5 +1,5 @@
 <div class="row">
-    <form #escribirForm="ngForm" (ngSubmit)="submitBasicData(escribirForm)" class="col s12">
+    <form #escribirForm="ngForm" (ngSubmit)="submitBasicData(escribirForm)" class="col s12" no-validate>
         <div class="row">
             <div class="input-field col s6">
                 <input placeholder="Placeholder" id="name" name="name" type="text" class="validate" ngModel #nameRef="ngModel" required maxlength="200">
@@ -24,10 +24,10 @@
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input placeholder="Placeholder" id="telephone" value=34 name="telephone" type="tel" class="validate" ngModel #telephoneRef="ngModel" required maxlength="10">
+                <input id="telephone" name="telephone" type="number" class="validate" ngModel #telephoneRef="ngModel" required maxlength="10">
                 <label for="telephone">Telephone</label>
                 <div class="mensaje-error" *ngIf="telephoneRef.touched && telephoneRef.errors?.required">
-                    El campo last name es requerido
+                    El campo telephone es requerido
                 </div>
                 <div class="mensaje-error" *ngIf="telephoneRef.touched && telephoneRef.errors?.maxlength">
                     El campo telephone debe tener maximo {{telephoneRef.errors.maxlength.requiredLength}} letras
@@ -38,13 +38,16 @@
 
 
             <div class="input-field col s6">
-                <input id="email" type="email" name="email" ngModel #emailRef="ngModel" class="validate" pattern='^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,3}$'>
+                <input id="email" type="email" name="email" ngModel #emailRef="ngModel" class="validate" pattern='^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,3}$' required maxlength="100">
                 <label for="email">Email</label>
                 <div class="mensaje-error" *ngIf="emailRef.touched && emailRef.errors?.required">
                     El campo email es requerido
                 </div>
                 <div class="mensaje-error" *ngIf="emailRef.touched && emailRef.errors?.pattern">
                     El email debe tener la forma xxx@xx.xxx
+                </div>
+                <div class="mensaje-error" *ngIf="emailRef.touched && emailRef.errors?.maxlength">
+                    El campo email debe tener maximo {{emaileRef.errors.maxlength.requiredLength}} letras
                 </div>
             </div>
         </div>
@@ -64,6 +67,6 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="button-primary u-pull-right" [disabled]="escribirForm.invalid">Register!</button>
+        <button type="submit" class="button-primary u-pull-right" [disabled]="escribirForm.invalid && comprobarEmail( emailRef.value, email2Ref.value)">Register!</button>
     </form>
 </div>
