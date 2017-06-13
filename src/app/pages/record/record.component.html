@@ -1,3 +1,7 @@
-<p>
-  record works!
-</p>
+<div *ngIf="!startRecording()">
+    <h5>Ahora necesitamos que grabes un vídeo contestando a unas preguntas.</h5>
+    <button (click)="startRecording" class="waves-effect waves-light btn">Empezar a grabar</button>
+</div>
+<div *ngIf="startRecording()">
+    <video #recordVideo></video>
+</div>
