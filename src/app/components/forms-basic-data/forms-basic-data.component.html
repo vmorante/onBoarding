@@ -1,43 +1,69 @@
-<form>
-    <div class="row">
-        <form class="col s12">
-            <div class="row">
+<div class="row">
+    <form #escribirForm="ngForm" (ngSubmit)="submitBasicData(escribirForm)" class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="name" name="name" type="text" class="validate" ngModel #nameRef="ngModel" required maxlength="200">
+                <label for="name">First Name</label>
+                <div class="mensaje-error" *ngIf="nameRef.touched && nameRef.errors?.required">
+                    El campo nombre es requerido
+                </div>
+                <div class="mensaje-error" *ngIf="nameRef.touched && nameRef.errors?.maxlength">
+                    El campo nombre debe tener maximo {{nameRef.errors.maxlength.requiredLength}} letras
+                </div>
+            </div>
+            <div class="input-field col s6">
+                <input id="last_name" name="last_name" type="text" class="validate" ngModel #lastNameRef="ngModel" required maxlength="200">
+                <label for="last_name">Last Name</label>
+                <div class="mensaje-error" *ngIf="lastNameRef.touched && lastNameRef.errors?.required">
+                    El campo nombre es requerido
+                </div>
+                <div class="mensaje-error" *ngIf="lastNameRef.touched && lastNameRef.errors?.maxlength">
+                    El campo nombre debe tener maximo {{lastNameRef.errors.maxlength.requiredLength}} letras
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="telephone" value=34 name="telephone" type="tel" class="validate" ngModel #telephoneRef="ngModel" required maxlength="10">
+                <label for="telephone">Telephone</label>
+                <div class="mensaje-error" *ngIf="telephoneRef.touched && telephoneRef.errors?.required">
+                    El campo last name es requerido
+                </div>
+                <div class="mensaje-error" *ngIf="telephoneRef.touched && telephoneRef.errors?.maxlength">
+                    El campo telephone debe tener maximo {{telephoneRef.errors.maxlength.requiredLength}} letras
+                </div>
+
+            </div>
+
+
+
+            <div class="input-field col s6">
+                <input id="email" type="email" name="email" ngModel #emailRef="ngModel" class="validate" pattern='^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,3}$'>
+                <label for="email">Email</label>
+                <div class="mensaje-error" *ngIf="emailRef.touched && emailRef.errors?.required">
+                    El campo email es requerido
+                </div>
+                <div class="mensaje-error" *ngIf="emailRef.touched && emailRef.errors?.pattern">
+                    El email debe tener la forma xxx@xx.xxx
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+
                 <div class="input-field col s6">
-                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                    <label for="first_name">First Name</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="last_name" type="text" class="validate">
-                    <label for="last_name">Last Name</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                    <label for="disabled">Disabled</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Email</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    This is an inline input field:
-                    <div class="input-field inline">
-                        <input id="email" type="email" class="validate">
-                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                    <input id="email2" type="email" name="email2" ngModel #email2Ref="ngModel" class="validate">
+                    <label for="email2">Email</label>
+                    <div class="mensaje-error" *ngIf="email2Ref.touched && email2Ref.errors?.required">
+                        El campo email es requerido
                     </div>
+                    <div class="mensaje-error" *ngIf="email2Ref.touched && emailRef.value!==email2Ref.value">
+                        El email debe ser el mismo
+                    </div>
+
                 </div>
             </div>
-        </form>
-    </div>
-</form>
+        </div>
+        <button type="submit" class="button-primary u-pull-right" [disabled]="escribirForm.invalid">Register!</button>
+    </form>
+</div>

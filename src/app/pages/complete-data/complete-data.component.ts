@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-complete-data',
   templateUrl: './complete-data.component.html',
